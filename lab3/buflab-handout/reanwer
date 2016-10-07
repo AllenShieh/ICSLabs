@@ -1,0 +1,11 @@
+
+reasm.o:     file format elf32-i386
+
+
+Disassembly of section .text:
+
+00000000 <.text>:
+   0:	bd d0 32 68 55       	mov    $0x556832d0,%ebp
+   5:	b8 99 65 7b 7b       	mov    $0x7b7b6599,%eax
+   a:	68 39 8d 04 08       	push   $0x8048d39
+   f:	c3                   	ret    

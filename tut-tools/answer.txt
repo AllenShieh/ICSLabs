@@ -1,0 +1,24 @@
+Exercises in Linux Shell
+
+Q1: A listing of all processes that you are currently running on the machine, sorted by the command name in alphabetical order.
+A1: ' ps -e | sort -k 4 '
+
+Q2: The number of words in the file /usr/share/dict words(*) which start with the letter a.
+A2: ' cd /usr/share/dict ' 
+    ' grep -c ^a words '
+    4667 words in total
+
+Q3: A long listing of the smallest 5 files in the /etc directory whose name contains the string '.conf', sorted by increasing file size.
+A3: ' cd /etc ' 
+    ' ls -rSl | grep .conf | head -5 '
+
+Q4: An executable file, named 'echo.sh', with one sequence of commends to print 'hello world!' on screen.
+A4: ' touch echo.sh ' 
+    ' vi(or vim) echo.sh ' 
+    ' i(or a) '
+    ' echo hello world! '
+    Esc
+    ' :wq '
+    ' sh echo.sh '
+
+

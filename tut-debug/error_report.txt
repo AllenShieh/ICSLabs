@@ -1,0 +1,103 @@
+/*
+ * BUG#0
+ * description: 
+     miss semicolon
+ * location: 
+ *   int a = 10  (line 18)
+ * evidence: 
+ *   test.c:19: error: two or more data types in declaration specifiers
+ */
+
+BUG#1
+description:
+    miss ';'
+location:
+    enum { buf_size = buf_nrec * 100 } (line 52)
+evidence:
+    gen_sort.c:54:9: error: expected ‘;’, identifier or ‘(’ before ‘struct’
+
+
+BUG#2
+description:
+    miss ';'
+location:
+    } record_t (line 58)
+evidence:
+    gen_sort.c:60:1: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘static’
+
+
+BUG#3
+description:
+    wrong type of parameter
+location:
+    gen_rec(record *rec) (line 114)
+evidence:
+    gen_sort.c:114:9: error: unknown type name ‘record’
+
+
+BUG#4
+description:
+    miss '{'
+location:
+    if (!file) (line 188)
+evidence:
+    gen_sort.c:212:2: error: expected identifier or ‘(’ before ‘return’
+    gen_sort.c:213:1: error: expected identifier or ‘(’ before ‘}’ token
+
+
+BUG#5
+description:
+    lack headfile
+location:
+    #include <stdio.h> (line 42)
+evidence:
+    gen_sort.c:187:2: error: unknown type name ‘FILE’
+
+
+BUG#6
+description:
+    unable to create a file
+location:
+    FILE *file = fopen(fn, "w"); (line 186)
+evidence:
+    no file created 
+
+
+
+BUG#7
+description:
+    wrong variable
+location:
+    for (j = 0; j < 10; j++ ) (line 125)
+evidence:
+    obvious mistake
+
+
+
+BUG#8
+description:
+    wrong size given when malloc
+location:
+    char *buf = (char *)malloc(buf_nrec * sizeof(record_t)) ; (line 180)
+evidence:
+    Segamentation fault
+
+
+
+BUG#9
+description:
+    wrong value of rec_len
+location:
+    enum { rec_len = key_len + recno_len + pad_len }; (line 50)
+evidence:
+    can't print all the chars when using 'cat'
+
+
+
+BUG#10
+description:
+    range mistake
+location:
+    for (cnt = 0; (cnt < buf_nrec) (line 147)
+evidence:
+    Segamentation fault
